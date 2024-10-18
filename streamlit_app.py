@@ -11,9 +11,9 @@ isSurvived = st.radio(
 
 if st.button("Рассчитать"):
     if (isSurvived == "Выжившие"):
-        needPeople = df["Survived" == 1]
+        needPeople = df[df['Survived'] == 1]
     else:
-        needPeople = df["Survived" == 0]
+        needPeople = df[df['Survived'] == 0]
     st.dataframe(needPeople)
     
 
