@@ -14,6 +14,7 @@ if st.button("Рассчитать"):
         needPeople = df[df['Survived'] == 1]
     else:
         needPeople = df[df['Survived'] == 0]
+    st.dataframe(df["SibSp"] + df["Parch"])
     st.dataframe(needPeople)
     
 
