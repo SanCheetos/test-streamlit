@@ -14,5 +14,5 @@ if st.button("Рассчитать"):
         needPeople = df[df['Survived'] == 1]
     else:
         needPeople = df[df['Survived'] == 0]
-    st.write("Среднее количество родственников: " + str((needPeople["SibSp"] + needPeople["Parch"]).mean()))
+    st.write("Среднее количество родственников: " + str(round((needPeople["SibSp"] + needPeople["Parch"]).mean()), 2))
 
