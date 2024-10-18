@@ -11,9 +11,14 @@ isSurvived = st.radio(
 
 if (isSurvived == "Выжившие"):
     needPeople = df[df['Survived'] == 1]
+    relatives = needPeople["SibSp"] + needPeople["Parch"]
+    meanRelatives = round(relatives.mean(), 2)
+    st.success("Среднее количество родственников: " + str(meanRelatives))
 else:
     needPeople = df[df['Survived'] == 0]
-relatives = needPeople["SibSp"] + needPeople["Parch"]
-meanRelatives = round(relatives.mean(), 2)
-st.write("Среднее количество родственников: " + str(meanRelatives))
+    relatives = needPeople["SibSp"] + needPeople["Parch"]
+    meanRelatives = round(relatives.mean(), 2)
+    st.error("Среднее количество родственников: " + str(meanRelatives))
+
+
 
