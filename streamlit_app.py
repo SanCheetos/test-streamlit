@@ -19,7 +19,7 @@ meanRelatives = round((survivedPeople["SibSp"] + survivedPeople["Parch"]).mean()
 st.write("Среднее количество родственников у выживших: " + str(meanRelatives))
 diedPeople = sex[sex['Survived'] == 0]
 meanRelatives = round((diedPeople["SibSp"] + diedPeople["Parch"]).mean(), 2)
-st.write("Среднее количество родственников у выживших: " + str(meanRelatives))
+st.write("Среднее количество родственников у погибших: " + str(meanRelatives))
 
 
 
