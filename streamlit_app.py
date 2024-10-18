@@ -16,5 +16,6 @@ if st.button("Рассчитать"):
         needPeople = df[df['Survived'] == 0]
     st.dataframe(df["SibSp"] + df["Parch"])
     st.dataframe(needPeople)
-    
+    st.write(df["SibSp"].sum() + df["Parch"].sum())
+    st.write((df["SibSp"] + df["Parch"]).sum())
 
