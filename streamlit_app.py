@@ -26,8 +26,8 @@ isSurvived = st.radio(
     ["Мужчина", "Женщина"],
 )
 output = calcRelatives(df, isSurvived)
-st.write("Среднее количество родственников у выживших: " + str(meanRelatives))
-st.write("Среднее количество родственников у погибших: " + str(meanRelatives))
+st.write("Среднее количество родственников у выживших: " + str(output[0]))
+st.write("Среднее количество родственников у погибших: " + str(output[1]))
 
 
 test1()
