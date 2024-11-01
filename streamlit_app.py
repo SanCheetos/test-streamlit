@@ -15,7 +15,7 @@ def calcRelatives(df, isSurvived):
     diedPeople = sex[sex['Survived'] == 0]
     meanRelatives = round((diedPeople["SibSp"] + diedPeople["Parch"]).mean(), 2)
     output.append(meanRelatives)
-    
+    return output
     
 st.image("titanic.jpg")
 df = pd.read_csv('titanic_train.csv', delimiter = ',')
