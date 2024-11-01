@@ -34,15 +34,27 @@ st.write("Среднее количество родственников у по
 def test1():
     dfTest = pd.DataFrame(
         {
-            'Sex': ['male', 'female', 'male', 'female'],
-            'Survived': [1, 0, 0, 1], 
-            'SibSp': [2, 2, 1, 4], 
-            'Parch': [0, 5, 1, 2]
+            'Sex': ['male', 'male'],
+            'Survived': [1, 0], 
+            'SibSp': [2, 1], 
+            'Parch': [0, 1]
         }
     )
     assert calcRelatives(dfTest, "Мужчина") == [2,2]
 
+def test2():
+    dfTest = pd.DataFrame(
+        {
+            'Sex': ['female', 'female'],
+            'Survived': [0, 1], 
+            'SibSp': [2, 4], 
+            'Parch': [5, 2]
+        }
+    )
+    assert calcRelatives(dfTest, "Мужчина") == [3.5,3]
+
 test1()
+test2()
   
   
     
