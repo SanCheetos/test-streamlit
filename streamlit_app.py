@@ -8,18 +8,18 @@ isSurvived = st.radio(
     "Выберите пол",
     ["Мужчина", "Женщина"],
 )
+calcRelatives(df, isSurvived)
 
-if (isSurvived == "Мужчина"):
-    sex = df[df['Sex'] == "male"]
+def calcRelatives(df, isSurvived):
+    if (isSurvived == "Мужчина"):
+        sex = df[df['Sex'] == "male"]
+        
+    else:
+        sex = df[df['Sex'] == "female"]
+    survivedPeople = sex[sex['Survived'] == 1]
+    meanRelatives = round((survivedPeople["SibSp"] + survivedPeople["Parch"]).mean(), 2)
+    st.write("Среднее количество родственников у выживших: " + str(meanRelatives))
+    diedPeople = sex[sex['Survived'] == 0]
+    meanRelatives = round((diedPeople["SibSp"] + diedPeople["Parch"]).mean(), 2)
+    st.write("Среднее количество родственников у погибших: " + str(meanRelatives))
     
-else:
-    sex = df[df['Sex'] == "female"]
-survivedPeople = sex[sex['Survived'] == 1]
-meanRelatives = round((survivedPeople["SibSp"] + survivedPeople["Parch"]).mean(), 2)
-st.write("Среднее количество родственников у выживших: " + str(meanRelatives))
-diedPeople = sex[sex['Survived'] == 0]
-meanRelatives = round((diedPeople["SibSp"] + diedPeople["Parch"]).mean(), 2)
-st.write("Среднее количество родственников у погибших: " + str(meanRelatives))
-
-
-
