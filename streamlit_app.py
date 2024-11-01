@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+import pytest
 
 def calcRelatives(df, isSurvived):
     if (isSurvived == "Мужчина"):
@@ -10,10 +10,12 @@ def calcRelatives(df, isSurvived):
         sex = df[df['Sex'] == "female"]
     survivedPeople = sex[sex['Survived'] == 1]
     meanRelatives = round((survivedPeople["SibSp"] + survivedPeople["Parch"]).mean(), 2)
-    st.write("Среднее количество родственников у выживших: " + str(meanRelatives))
+    output = []
+    output[0] = str(meanRelatives)
     diedPeople = sex[sex['Survived'] == 0]
     meanRelatives = round((diedPeople["SibSp"] + diedPeople["Parch"]).mean(), 2)
-    st.write("Среднее количество родственников у погибших: " + str(meanRelatives))
+    output[1] = str(meanRelatives)
+    
     
 st.image("titanic.jpg")
 df = pd.read_csv('titanic_train.csv', delimiter = ',')
@@ -23,7 +25,22 @@ isSurvived = st.radio(
     "Выберите пол",
     ["Мужчина", "Женщина"],
 )
-calcRelatives(df, isSurvived)
+output = calcRelatives(df, isSurvived)
+st.write("Среднее количество родственников у выживших: " + str(meanRelatives))
+st.write("Среднее количество родственников у погибших: " + str(meanRelatives))
 
 
+test1()
+def test1():
+    dfTest = pd.DataFrame(
+        {
+            'Sex': ['male', 'female', 'male', 'female'],
+            'Survived': [1, 0, 0, 1], 
+            'Sibsp': [2, 2, 1, 4], 
+            'Parch': [0, 5, 1, 2]
+        }
+    )
+    assert calcRelatives(dfTest, "Мужчина") == [2,2]
+  
+  
     
