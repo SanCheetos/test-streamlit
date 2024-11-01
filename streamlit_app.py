@@ -30,7 +30,7 @@ st.write("Среднее количество родственников у вы
 st.write("Среднее количество родственников у погибших: " + str(output[1]))
 
 
-test1()
+
 def test1():
     dfTest = pd.DataFrame(
         {
@@ -41,6 +41,7 @@ def test1():
         }
     )
     assert calcRelatives(dfTest, "Мужчина") == [2,2]
+test1()
   
   
     
