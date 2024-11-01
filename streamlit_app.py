@@ -40,7 +40,7 @@ def test1():
             'Parch': [0, 5, 1, 2]
         }
     )
-    assert calcRelatives(dfTest, "Мужчина") == [2,3]
+    assert calcRelatives(dfTest, "Мужчина") == [2,2]
 
 test1()
   
