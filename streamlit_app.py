@@ -36,7 +36,7 @@ def test1():
         {
             'Sex': ['male', 'female', 'male', 'female'],
             'Survived': [1, 0, 0, 1], 
-            'Sibsp': [2, 2, 1, 4], 
+            'SibSp': [2, 2, 1, 4], 
             'Parch': [0, 5, 1, 2]
         }
     )
