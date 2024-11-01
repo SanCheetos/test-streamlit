@@ -45,13 +45,13 @@ def test1():
 def test2():
     dfTest = pd.DataFrame(
         {
-            'Sex': ['female', 'female'],
-            'Survived': [0, 1], 
-            'SibSp': [2, 4], 
-            'Parch': [5, 2]
+            'Sex': ['female', 'female','female', 'female'],
+            'Survived': [0, 1, 0, 1], 
+            'SibSp': [2, 4, 3, 3], 
+            'Parch': [5, 2, 2, 5]
         }
     )
-    assert calcRelatives(dfTest, "Женщина") == [6,7]
+    assert calcRelatives(dfTest, "Женщина") == [7,6]
 
 test1()
 test2()
