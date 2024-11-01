@@ -14,8 +14,10 @@ def calcRelatives(df, isSurvived):
     diedPeople = sex[sex['Survived'] == 0]
     meanRelatives = round((diedPeople["SibSp"] + diedPeople["Parch"]).mean(), 2)
     st.write("Среднее количество родственников у погибших: " + str(meanRelatives))
+    
 st.image("titanic.jpg")
 df = pd.read_csv('titanic_train.csv', delimiter = ',')
+st.dataframe(df)
 st.title("Подсчет среднего количества родственников, отдельно среди выживших и погибших")
 isSurvived = st.radio(
     "Выберите пол",
