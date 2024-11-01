@@ -1,14 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-st.image("titanic.jpg")
-df = pd.read_csv('titanic_train.csv', delimiter = ',')
-st.title("Подсчет среднего количества родственников, отдельно среди выживших и погибших")
-isSurvived = st.radio(
-    "Выберите пол",
-    ["Мужчина", "Женщина"],
-)
-calcRelatives(df, isSurvived)
 
 def calcRelatives(df, isSurvived):
     if (isSurvived == "Мужчина"):
@@ -22,4 +14,14 @@ def calcRelatives(df, isSurvived):
     diedPeople = sex[sex['Survived'] == 0]
     meanRelatives = round((diedPeople["SibSp"] + diedPeople["Parch"]).mean(), 2)
     st.write("Среднее количество родственников у погибших: " + str(meanRelatives))
+st.image("titanic.jpg")
+df = pd.read_csv('titanic_train.csv', delimiter = ',')
+st.title("Подсчет среднего количества родственников, отдельно среди выживших и погибших")
+isSurvived = st.radio(
+    "Выберите пол",
+    ["Мужчина", "Женщина"],
+)
+calcRelatives(df, isSurvived)
+
+
     
