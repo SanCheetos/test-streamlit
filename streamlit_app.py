@@ -11,10 +11,10 @@ def calcRelatives(df, isSurvived):
     survivedPeople = sex[sex['Survived'] == 1]
     meanRelatives = round((survivedPeople["SibSp"] + survivedPeople["Parch"]).mean(), 2)
     output = []
-    output[0] = str(meanRelatives)
+    output.append(meanRelatives)
     diedPeople = sex[sex['Survived'] == 0]
     meanRelatives = round((diedPeople["SibSp"] + diedPeople["Parch"]).mean(), 2)
-    output[1] = str(meanRelatives)
+    output.append(meanRelatives)
     
     
 st.image("titanic.jpg")
